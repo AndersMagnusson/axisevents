@@ -2,14 +2,14 @@ A go library to simplify configuration of events such as record video when motio
 
 ## Table of contents
 
-- [How to use it](#How to use it)
+- [How to](#how-to)
 - [Installation](#installation)
 - [Prerequisites](#prerequisites)
 
 
 ---
 
-## How to use it
+## How to
 ```go
 var device = Device{
 	Address:  address,
