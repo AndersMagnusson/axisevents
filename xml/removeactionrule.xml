@@ -1,0 +1,87 @@
+POST /vapix/services?timestamp=1516045644620 HTTP/1.1
+Host: 192.168.1.217
+Connection: keep-alive
+Content-Length: 547
+Authorization: Digest username="root", realm="AXIS_ACCC8E0581F4", nonce="000ea657Y271549fac9a90952b8fca7d956d01d97d24ad", uri="/vapix/services?timestamp=1516045644620", response="0f803fc90847991ed6e352c4d4490acf", qop=auth, nc=00000001, cnonce="c8eefe056b3cb1f3"
+Origin: http://192.168.1.217
+SOAPAction: http://www.axis.com/vapix/ws/action1/RemoveActionRule
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+Content-Type: text/xml; charset=UTF-8
+Accept: */*
+Referer: http://192.168.1.217/operator/action_rules.shtml?id=25
+Accept-Encoding: gzip, deflate
+Accept-Language: sv,en-US;q=0.9,en;q=0.8
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:aa="http://www.axis.com/vapix/ws/action1" 
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2" 
+    xmlns:tns1="http://www.onvif.org/ver10/topics" 
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics" 
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+        <aa:RemoveActionRule 
+            xmlns="http://www.axis.com/vapix/ws/action1">
+            <RuleID>6</RuleID>
+        </aa:RemoveActionRule>
+    </soap:Body>
+</soap:Envelope>HTTP/1.1 200 OK
+Authentication-Info: qop=auth, rspauth="fc37dcc8d55b762f6b67652c0e0089af", cnonce="c8eefe056b3cb1f3", nc=00000001
+Server: gSOAP/2.7
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 2669
+Connection: close
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope 
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope" 
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#" 
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" 
+    xmlns:wsa5="http://www.w3.org/2005/08/addressing" 
+    xmlns:xmime="http://tempuri.org/xmime.xsd" 
+    xmlns:xop="http://www.w3.org/2004/08/xop/include" 
+    xmlns:wsrfbf="http://docs.oasis-open.org/wsrf/bf-2" 
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1" 
+    xmlns:tt="http://www.onvif.org/ver10/schema" 
+    xmlns:acert="http://www.axis.com/vapix/ws/cert" 
+    xmlns:wsrfr="http://docs.oasis-open.org/wsrf/r-2" 
+    xmlns:aa="http://www.axis.com/vapix/ws/action1" 
+    xmlns:acertificates="http://www.axis.com/vapix/ws/certificates" 
+    xmlns:aev="http://www.axis.com/vapix/ws/event1" 
+    xmlns:ali1="http://www.axis.com/vapix/ws/light/CommonBinding" 
+    xmlns:ali2="http://www.axis.com/vapix/ws/light/IntensityBinding" 
+    xmlns:ali3="http://www.axis.com/vapix/ws/light/AngleOfIlluminationBinding" 
+    xmlns:ali4="http://www.axis.com/vapix/ws/light/DayNightSynchronizeBinding" 
+    xmlns:ali="http://www.axis.com/vapix/ws/light" 
+    xmlns:apc="http://www.axis.com/vapix/ws/panopsiscalibration1" 
+    xmlns:arth="http://www.axis.com/vapix/ws/recordedtour1" 
+    xmlns:aweb="http://www.axis.com/vapix/ws/webserver" 
+    xmlns:tan1="http://www.onvif.org/ver20/analytics/wsdl/RuleEngineBinding" 
+    xmlns:tan2="http://www.onvif.org/ver20/analytics/wsdl/AnalyticsEngineBinding" 
+    xmlns:tan="http://www.onvif.org/ver20/analytics/wsdl" 
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl" 
+    xmlns:tev1="http://www.onvif.org/ver10/events/wsdl/NotificationProducerBinding" 
+    xmlns:tev2="http://www.onvif.org/ver10/events/wsdl/EventBinding" 
+    xmlns:tev3="http://www.onvif.org/ver10/events/wsdl/SubscriptionManagerBinding" 
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2" 
+    xmlns:tev4="http://www.onvif.org/ver10/events/wsdl/PullPointSubscriptionBinding" 
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl" 
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl" 
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl" 
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl" 
+    xmlns:ter="http://www.onvif.org/ver10/error" 
+    xmlns:tns1="http://www.onvif.org/ver10/topics" 
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+    <SOAP-ENV:Body>
+        <aa:RemoveActionRuleResponse></aa:RemoveActionRuleResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

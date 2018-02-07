@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="wsdl-viewer.xsl"?>
+<wsdl:definitions targetNamespace="http://www.axis.com/vapix/ws/action1"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:aa="http://www.axis.com/vapix/ws/action1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+    <wsdl:documentation xmlns="http://www.w3.org/1999/xhtml">
+	<h2>COPYRIGHT NOTICE</h2>
+	 <p>
+		&#169; Axis Communications AB, 2011
+	</p>
+	<p>
+		This document is copyright protected and is the property of Axis
+		Communications AB and may not be copied, reproduced or distributed
+		in any way without the prior written consent of Axis
+		Communications AB.
+	</p>
+	<h2>TRADEMARK NOTICE</h2>
+	<p>
+		AXIS COMMUNICATIONS, AXIS, ETRAX, ARTPEC and VAPIX are registered
+		trademarks or trademark applications of Axis AB in various
+		jurisdictions. All other company names and products are trademarks
+		or registered trademarks of their respective companies. We reserve
+		the right to introduce modifications without notice.
+	</p>
+	<h2>Terms of Use</h2>
+	<p>
+		The use of the AXIS VAPIX application programming interface
+		(hereinafter referred to as "the INTERFACE" as further specified
+		below, is subject to the terms and conditions of the License
+		Agreement below. By using the INTERFACE and the written
+		specification of the INTERFACE (hereinafter referred to as “the
+		INTERFACE DESCRIPTION"), whether in whole or in part, you agree to
+		be bound by the terms of the License Agreement.
+	</p>
+	<h2>VAPIX&#174; LICENSE AGREEMENT</h2>
+	<p>
+		This is a legal agreement (the “License Agreement”) between you
+		(either individual or an entity) and Axis Communications AB
+		(hereinafter referred to as “Axis”).
+	</p>
+	<h3>1. GRANT OF LICENSE</h3>
+	<p>
+		Axis hereby grants to you the right to use the INTERFACE and the
+		INTERFACE DESCRIPTION for the sole and limited purpose of creating,
+		manufacturing and developing a solution that integrates any unit
+		or portion included in the Axis network products (as defined by
+		Axis at its discretion) and to market, sell and distribute any such
+		solution.
+	</p>
+	<h3>2. COPYRIGHT</h3>
+	<p>
+		The INTERFACE and the INTERFACE DESCRIPTION are owned by Axis and
+		are protected by copyright laws and international treaty
+		provisions. Any use of the INTERFACE and/or the INTERFACE
+		DESCRIPTION outside the limited purpose set forth in Section 1
+		above is strictly prohibited.
+	</p>
+	<h3>3. NO REVERSE ENGINEERING</h3>
+	<p>
+		You may not reverse engineer, decompile, or disassemble the
+		INTERFACE except to the extent required to obtain interoperability
+		with other independently created computer programs as permitted by
+		mandatory law.
+	</p>
+	<h3>4. TERMINATION</h3>
+	<p>
+		This License is effective until terminated. Your rights under this
+		License will terminate automatically without notice from Axis if
+		you fail to comply with any term(s) of this License. Upon the
+		termination of this License, you shall cease all use and
+		disposition of the INTERFACE and/or THE INTERFACE DESCRIPTION
+		whether for the purpose set forth in Section 1 above or not.
+	</p>
+	<h3>5. GOVERNING LAW</h3>
+	<p>
+		This agreement shall be deemed performed in and shall be construed
+		by the laws of Sweden. All disputes in connection with this
+		agreement shall be finally settled by arbitration in accordance
+		with the Rules of the Arbitration Institute of the Stockholm Chamber
+		of Commerce. The place of arbitration shall be Malmö, Sweden. The
+		language of the proceedings, documentation and the award shall be
+		English.
+	</p>
+	<h3>6. DISCLAIMER</h3>
+	<p>
+	   6.1 THE INTERFACE AND THE INTERFACE DESCRIPTION ARE DELIVERED FREE
+	   OF CHARGE AND “AS IS” WITHOUT WARRANTY OF ANY KIND. THE ENTIRE RISK
+	   AS TO THE USE, RESULTS AND PERFORMANCE OF THE INTERFACE AND THE
+	   INTERFACE DESCRIPTION IS ASSUMED BY THE USER/YOU. AXIS DISCLAIMS
+	   ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
+	   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	   A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT AND PRODUCT LIABILITY,
+	   OR ANY WARRANTY ARISING OUT OF ANY PROPOSAL, SPECIFICATION OR SAMPLE
+	   WITH RESPECT TO THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.2 YOU ARE YOURSELF RESPONSIBLE FOR EXAMINING WHETHER THE INTERFACE
+	  AND THE INTERFACE DESCRIPTION ARE ENCUMBERED BY OR INFRINGES UPON A
+	  RIGHT HELD BY A THIRD PARTY. AXIS, WHO HAS NOT UNDERTAKEN ANY SUCH
+	  INVESTIGATIONS, HAS NO KNOWLEDGE OF NOR DOES AXIS ACCEPT ANY
+	  LIABILITY FOR ANY SUCH ENCUMBRANCES OR INFRINGEMENTS.
+	</p>
+	<p>
+	  6.3 YOU UNDERTAKE NOT TO PURSUE ANY CLAIMS WHATSOEVER AGAINST AXIS
+	  OR ITS AFFILIATES RELATING TO OR EMANATING FROM THE INTERFACE AND
+	  THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.4 AXIS SHALL NOT BE LIABLE FOR LOSS OF DATA, LOSS OF PRODUCTION,
+	  LOSS OF PROFIT, LOSS OF USE, LOSS OF CONTRACTS OR FOR ANY OTHER
+	  CONSEQUENTIAL, ECONOMIC OR INDIRECT LOSS WHATSOEVER IN RESPECT OF
+	  USE OR DISPOSITION OF THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.5 AXIS TOTAL LIABILITY FOR ALL CLAIMS IN ACCORDANCE WITH THE USE
+	  OF THE INTERFACE AND THE INTERFACE DESCRIPTION SHALL NOT EXCEED THE
+	  PRICE PAID FOR THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.6 YOU SHALL INDEMNIFY AND HOLD AXIS AND ITS AFFILIATES HARMLESS
+	  FROM ANY CLAIMS WHATSOEVER FROM ANY THIRD PARTY AGAINST AXIS OR ITS
+	  AFFILIATES RELATING TO OR EMANATING FROM YOUR USE OF THE INTERFACE
+	  AND THE INTERFACE DESCRIPTION UNDER THIS LICENSE AGREEMENT. THE
+	  FOREGOING INDEMNIFICATION INCLUDES BUT IS NOT LIMITED TO ANY AND ALL
+	  DAMAGES, COSTS AND EXPENSES (INCLUDING REASONABLE ATTORNEYS’ FEES).
+	</p>
+	<h1>VAPIX&#174; Action Service API</h1>
+      <p>
+        VAPIX&#174; Action Service API is used to configure the Axis product
+		to perform actions in response to events or while certain conditions
+		are met. The Action Service API consists of:
+      </p>
+	  <ul>
+		<li>
+			action management - action templates, action rules and action
+			configurations
+		</li>
+		<li>
+			recipient management - recipient templates and recipient
+			configurations
+		</li>
+	  </ul>
+	  <p>
+		More information about VAPIX&#174; is available on the
+		<a href="http://www.axis.com/techsup/cam_servers/dev/cam_http_api_index.php">
+		Developer pages at www.axis.com</a>
+	  </p>
+	  <h2>Action Management</h2>
+		<p>
+			An <b>action</b> is a task that can be performed by the Axis
+			product. The action is initiated by an action rule. Examples:
+			record video, send e-mail, activate output port.
+		</p>
+		<p>
+			A <b>fixed action</b> runs during a fixed, predefined time.
+			Depending on the action type, the length of time is defined by
+			one or more action parameters, by the length of the audio clip
+			to be played or similar. An <b>unlimited action</b> runs as
+			long as all conditions are fulfilled.
+		</p>
+      <h3>Action Rules</h3>
+		<p>
+			An <b>action rule</b> specifies how and when the Axis product performs
+			an action. Example: record video when motion is detected outside office hours.
+		</p>
+		<p>
+			An action rule consists of:
+		</p>
+		<ul>
+			<li>a start event</li>
+			<li>one or more conditions</li>
+			<li>a primary action</li>
+			<li>a fallback action</li>
+		</ul>
+		<p>
+			The primary action will be executed when the start event occurs and all specified conditions are fulfilled.
+			The start event can be omitted. Conditions can also be omitted, but either a start event
+			or at least one condition must be specified.
+			The action will be stopped when any of the conditions is no longer fulfilled.
+		</p>
+        <p>
+          The start event and the conditions are specified using
+          <code>TopicExpression</code> and <code>MessageContent</code>
+		  filters. See  VAPIX&#174; Event Service API. All mandated
+          dialects specified in [ONVIF] are supported. The start event can be
+          any valid filter expression, as defined by [ONVIF]. Each condition
+		  should be specified by a separate filter expression which must
+		  describe one stateful event. Stateless events cannot be used as
+		  conditions. If the provided filter does not match any stateful
+          events or matches multiple stateful events, the
+		  <code>AddActionRule</code> request will fail with
+		  <code>InvalidConditionFilterFault</code> reply.
+        </p>
+
+		<p>
+			The primary action is specified using an action configuration, see below. A fallback action
+			is optional and will be executed if the primary action fails.
+        </p>
+		<p>
+			Supported operations:
+		</p>
+		<ul>
+			<li><code>AddActionRule</code> - create a new action rule</li>
+			<li><code>GetActionRules</code> - list all stored action rules</li>
+			<li><code>RemoveActionRule</code> - remove an action rule</li>
+		</ul>
+       <h3>Action Templates</h3>
+		<p>
+			An <b>action template</b> defines an action type. The template lists the
+			parameters needed to configure the action. If the action uses a recipient,
+			the supported recipient type is also listed.
+		</p>
+		<p>
+			Supported operations:
+		</p>
+		<ul>
+			<li><code>GetActionTemplates</code> - list the action templates supported by the Axis product</li>
+		</ul>
+	 <h3>Action Configurations</h3>
+		<p>
+			An <b>action configuration</b> specifies an action to be performed. The
+			action configuration is created by specifying an action template and
+			a list of parameters. If the action template refers to a recipient
+			template, the parameters in the recipient template must also be added to the
+			action configuration.
+		</p>
+		<p>
+			The Action Configuration ID identifies the action configuration
+			and is used as input when creating an action rule.
+		</p>
+	 	<p>
+			Supported operations:
+		</p>
+		<ul>
+			<li><code>AddActionConfiguration</code> - create a new action configuration</li>
+			<li><code>GetActionConfigurations</code> - list all stored action configurations</li>
+			<li><code>RemoveActionConfiguration</code> - remove an action configuration</li>
+		</ul>
+     	<h2>Recipient Management</h2>
+		<p>
+		    A <b>recipient</b> is a network resource that can receive
+			data, for example video clips or notification messages.
+			Examples: network share, FTP server, email address.
+		</p>
+      <h3>Recipient Templates</h3>
+        <p>
+			A <b>recipient template</b> defines a recipient type. The
+			template lists the parameters used to configure a recipient
+			of the given type.
+		</p>
+		<p>
+			Supported operations:
+		</p>
+		<ul>
+			<li><code>GetRecipientTemplates</code> - list the recipient templates supported by the Axis product</li>
+		</ul>
+      <h3>Recipient Configurations</h3>
+		<p>
+			A <b>recipient configuration</b> specifies the parameters for a recipient. A recipient configuration is created by specifying a recipient
+          template and a list of parameters.
+			Recipient configurations are optional and are only used to store the parameters on the
+			Axis product. The recipient configurations are not used directly in action configurations.
+		</p>
+		<p>
+			Supported operations:
+		</p>
+		<ul>
+			<li><code>AddRecipientConfiguration</code> - create a new recipient configuration</li>
+			<li><code>GetRecipientConfigurations</code> - list all stored recipient configurations</li>
+			<li><code>RemoveRecipientConfiguration</code> - remove an recipient configuration</li>
+		</ul>
+      <h3>Examples</h3>
+        <p>
+          See <a href="ActionServiceExamples.txt">ActionServiceExamples.txt</a>
+          for examples of using the Action Services API.
+        </p>
+      <h2>References</h2>
+        <p>
+          <ul>
+            <li>
+              <b>[ONVIF]</b>
+              ONVIF Core Specification, version 1.02, available on <a href="http://www.onvif.org">www.onvif.org</a>
+            </li>
+          </ul>
+        </p>
+    </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.axis.com/vapix/ws/action1"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+        elementFormDefault="qualified">
+
+      <xs:import namespace="http://docs.oasis-open.org/wsn/b-2"
+                 schemaLocation="http://docs.oasis-open.org/wsn/b-2.xsd"/>
+
+
+      <!--====== Message Elements =======-->
+
+      <xs:element name="GetActionTemplates">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetActionTemplatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ActionTemplates" type="aa:ActionTemplates">
+              <xs:annotation>
+                <xs:documentation>
+                  List of supported action types.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddActionConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NewActionConfiguration"
+                        type="aa:NewActionConfiguration">
+              <xs:annotation>
+                <xs:documentation>
+                  Action configuration description.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddActionConfigurationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ConfigurationID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Action Configuration ID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveActionConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ConfigurationID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Action Configuration ID of the action configuration to be removed.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveActionConfigurationResponse">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetActionConfigurations">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetActionConfigurationsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ActionConfigurations"
+                        type="aa:ActionConfigurations">
+              <xs:annotation>
+                <xs:documentation>
+                   List of stored action configurations.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetRecipientTemplates">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetRecipientTemplatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RecipientTemplates"
+                        type="aa:RecipientTemplates">
+              <xs:annotation>
+                <xs:documentation>
+                  List of supported recipient types.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddRecipientConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NewRecipientConfiguration"
+                        type="aa:NewRecipientConfiguration">
+              <xs:annotation>
+                <xs:documentation>
+                  New recipient configuration.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddRecipientConfigurationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ConfigurationID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Recipient configuration ID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveRecipientConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ConfigurationID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Recipient configuration ID of the recipient configuration to be removed.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveRecipientConfigurationResponse">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetRecipientConfigurations">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetRecipientConfigurationsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RecipientConfigurations"
+                        type="aa:RecipientConfigurations">
+              <xs:annotation>
+                <xs:documentation>
+                  List of configured recipients.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddActionRule">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NewActionRule" type="aa:NewActionRule">
+              <xs:annotation>
+                <xs:documentation>
+                  Action rule description.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddActionRuleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RuleID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Action Rule ID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetActionRules">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetActionRulesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ActionRules"
+                        type="aa:ActionRules">
+              <xs:annotation>
+                <xs:documentation>
+                  List of configured action rules.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveActionRule">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RuleID" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>
+                  Action Rule ID of the action rule to be removed.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveActionRuleResponse">
+        <xs:complexType/>
+      </xs:element>
+
+      <!--====== Faults Elements ========-->
+
+      <xs:element name="ActionTemplateNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            Action template with the specified token does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RecipientConfigurationNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            Recipient configuration with the specified ID does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="ParametersMissmatchFault">
+        <xs:annotation>
+          <xs:documentation>
+            Unexpected or missing parameter.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InvalidActionConfigurationFault">
+        <xs:annotation>
+          <xs:documentation>
+            One or more of the specified parameter values are not valid.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="ActionConfigurationNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            Action configuration with the specified ID does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RecipientTemplateNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            Recipient template with specified token does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="ActionConfigurationIsInUseFault">
+        <xs:annotation>
+          <xs:documentation>
+            The specified Action Configuration ID is used in an action rule and
+            can not be removed.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UsedByActionRules" type="aa:UsedByActionRules">
+              <xs:annotation>
+                <xs:documentation>
+                  List of action rules using the Action Configuration ID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InvalidConditionFilterFault">
+        <xs:annotation>
+          <xs:documentation>
+            The specified condition filter does not describe any known property states.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InsufficientActivationRuleFault">
+        <xs:annotation>
+          <xs:documentation>
+            No start event or condition is specified.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="ActionRuleNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            Action rule with the specified ID does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InvalidActivationTimeoutFault">
+        <xs:annotation>
+          <xs:documentation>
+            Invalid duration for activation timeout.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MaximumTimeout" type="xs:duration"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <!--===== Types Definitions =======-->
+
+      <xs:complexType name="NewActionRule">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the action rule.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Enabled" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Enable the rule. If false, the rule will be stored in idle state and
+                action(s) will not be activated.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StartEvent" type="wsnt:FilterType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Start event. If specified, the action will be
+                executed when the start event is emitted and all conditions, if any,
+                are fulfilled.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Conditions"
+                      type="aa:Conditions"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+			    List of conditions that must be fulfilled for the action to
+				be executed. The order of the conditions will be preserved in
+				GetActionRules requests.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ActivationTimeout"
+                      type="xs:duration"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+				Minimum time between successive action executions. This is used to prevent
+				the action rule from being triggered repeatedly. If not
+                specified, action will be executed as soon as possible.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="PrimaryAction" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>
+                The primary action to be executed, specified by its Action Configuration ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FailoverAction"
+                      type="xs:integer"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Action Configuration ID for the fallback action.
+				The fallback action will be executed if the primary action fails.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+
+      <xs:complexType name="Conditions">
+        <xs:sequence>
+          <xs:element name="Condition"
+                      type="wsnt:FilterType"
+                      minOccurs="1"
+                      maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionRules">
+        <xs:sequence>
+          <xs:element name="ActionRule"
+                      type="aa:ActionRule"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Action rule description.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionRule">
+        <xs:sequence>
+          <xs:element name="RuleID" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>
+                Action Rule ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the action rule.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Enabled" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                If false, then the rule is idle and the action is never
+                executed. If true, the rule is active.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StartEvent" type="wsnt:FilterType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                The start event belonging to the rule.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Conditions"
+                      type="aa:Conditions"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+			   List of conditions that must be fulfilled for the action to
+				be executed. Conditions are listed in the same order as specified
+				in the AddActionRule request.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ActivationTimeout"
+                      type="xs:duration"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Minimum time between successive action executions. This is used to prevent
+				the action rule from being triggered repeatedly. If not
+                specified, action will be executed as soon as possible.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="PrimaryAction" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>
+			    The primary action to be executed, specified by its Action Configuration ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FailoverAction"
+                      type="xs:integer"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+              Action Configuration ID for the fallback action.
+				The fallback action will be executed if the primary action fails.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="NewRecipientConfiguration">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the recipient configuration.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient type, specified as a recipient template
+                token.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionParameters"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient configuration parameter values.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="RecipientConfiguration">
+        <xs:sequence>
+          <xs:element name="ConfigurationID" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient Configuration ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient type, specified as a recipient template
+                token.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the recipient.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionParameters"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient parameter values.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="RecipientConfigurations">
+        <xs:sequence>
+          <xs:element name="RecipientConfiguration"
+                      type="aa:RecipientConfiguration"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="RecipientTemplates">
+        <xs:sequence>
+          <xs:element name="RecipientTemplate"
+                      type="aa:RecipientTemplate"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Recipient type description.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="RecipientTemplate">
+        <xs:sequence>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Token used to identify the recipient template.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionTemplateParameters"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Supported recipient parameters.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionConfigurations">
+        <xs:sequence>
+          <xs:element name="ActionConfiguration"
+                      type="aa:ActionConfiguration"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Action configuration description.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="NewActionConfiguration">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the action configuration.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                A token used to identify the action template to use.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionParameters"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Action configuration parameter values.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionConfiguration">
+        <xs:sequence>
+          <xs:element name="ConfigurationID" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>
+		Action Configuration ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the action configuration.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+		Action type, specified as an action template token.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionParameters"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Action configuration parameter values.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionParameters">
+        <xs:sequence>
+          <xs:element name="Parameter"
+                      type="aa:ActionParameter"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##any" processContents="lax"/>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionTemplates">
+        <xs:sequence>
+          <xs:element name="ActionTemplate"
+                      type="aa:ActionTemplate"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Action template description.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionParameter">
+        <xs:attribute name="Name" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Parameter name.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Value" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Parameter value.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionTemplate">
+        <xs:sequence>
+          <xs:element name="TemplateToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                A token used to identify the action template.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RecipientTemplate"
+                      type="xs:string"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                The recipient template to be used with this action.
+				The recipient template lists the recipient
+                parameters needed for this action.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Parameters"
+                      type="aa:ActionTemplateParameters"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                List of action configuration parameters.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionTemplateParameters">
+        <xs:sequence>
+          <xs:element name="Parameter"
+                      type="aa:ActionTemplateParameter"
+                      minOccurs="1"
+                      maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ActionTemplateParameter">
+        <xs:attribute name="Name" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Parameter name.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Type" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Parameter data type.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="UsedByActionConfigurations">
+        <xs:sequence>
+          <xs:element name="ActionConfiguration"
+                      type="aa:UsedActionConfiguration"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="UsedActionConfiguration">
+        <xs:sequence>
+           <xs:element name="ActionConfigurationID" type="xs:integer"/>
+           <xs:element name="ActionConfigurationName"
+                       type="xs:string"
+                       minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="UsedByActionRules">
+        <xs:sequence>
+          <xs:element name="ActionRule"
+                      type="aa:UsedActionRule"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="UsedActionRule">
+        <xs:sequence>
+          <xs:element name="ActionRuleID" type="xs:integer"/>
+          <xs:element name="ActionRuleName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <!--===============================-->
+  <wsdl:message name="GetActionTemplatesRequest">
+    <wsdl:part name="parameters" element="aa:GetActionTemplates"/>
+  </wsdl:message>
+  <wsdl:message name="GetActionTemplatesResponse">
+    <wsdl:part name="parameters" element="aa:GetActionTemplatesResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="AddActionConfigurationRequest">
+    <wsdl:part name="parameters" element="aa:AddActionConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="AddActionConfigurationResponse">
+    <wsdl:part name="parameters" element="aa:AddActionConfigurationResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="RemoveActionConfigurationRequest">
+    <wsdl:part name="parameters" element="aa:RemoveActionConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveActionConfigurationResponse">
+    <wsdl:part name="parameters" element="aa:RemoveActionConfigurationResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="GetActionConfigurationsRequest">
+    <wsdl:part name="parameters" element="aa:GetActionConfigurations"/>
+  </wsdl:message>
+  <wsdl:message name="GetActionConfigurationsResponse">
+    <wsdl:part name="parameters" element="aa:GetActionConfigurationsResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="GetRecipientTemplatesRequest">
+    <wsdl:part name="parameters" element="aa:GetRecipientTemplates"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecipientTemplatesResponse">
+    <wsdl:part name="parameters" element="aa:GetRecipientTemplatesResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="AddRecipientConfigurationRequest">
+    <wsdl:part name="parameters" element="aa:AddRecipientConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="AddRecipientConfigurationResponse">
+    <wsdl:part name="parameters" element="aa:AddRecipientConfigurationResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="RemoveRecipientConfigurationRequest">
+    <wsdl:part name="parameters" element="aa:RemoveRecipientConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveRecipientConfigurationResponse">
+    <wsdl:part name="parameters" element="aa:RemoveRecipientConfigurationResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="GetRecipientConfigurationsRequest">
+    <wsdl:part name="parameters" element="aa:GetRecipientConfigurations"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecipientConfigurationsResponse">
+    <wsdl:part name="parameters" element="aa:GetRecipientConfigurationsResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="AddActionRuleRequest">
+    <wsdl:part name="parameters" element="aa:AddActionRule"/>
+  </wsdl:message>
+  <wsdl:message name="AddActionRuleResponse">
+    <wsdl:part name="parameters" element="aa:AddActionRuleResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="GetActionRulesRequest">
+    <wsdl:part name="parameters" element="aa:GetActionRules"/>
+  </wsdl:message>
+  <wsdl:message name="GetActionRulesResponse">
+    <wsdl:part name="parameters" element="aa:GetActionRulesResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="RemoveActionRuleRequest">
+    <wsdl:part name="parameters" element="aa:RemoveActionRule"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveActionRuleResponse">
+    <wsdl:part name="parameters" element="aa:RemoveActionRuleResponse"/>
+  </wsdl:message>
+
+  <!--====== Faults Messages ========-->
+
+  <!--===============================-->
+  <wsdl:message name="RecipientTemplateNotFoundFault">
+    <wsdl:part name="parameters" element="aa:RecipientTemplateNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ActionTemplateNotFoundFault">
+    <wsdl:part name="parameters" element="aa:ActionTemplateNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="RecipientConfigurationNotFoundFault">
+    <wsdl:part name="parameters" element="aa:RecipientConfigurationNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ParametersMissmatchFault">
+    <wsdl:part name="parameters" element="aa:ParametersMissmatchFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidActionConfigurationFault">
+    <wsdl:part name="parameters" element="aa:InvalidActionConfigurationFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ActionConfigurationNotFoundFault">
+    <wsdl:part name="parameters"
+      element="aa:ActionConfigurationNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ActionConfigurationIsInUseFault">
+    <wsdl:part name="parameters"
+               element="aa:ActionConfigurationIsInUseFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidConditionFilterFault">
+    <wsdl:part name="parameters" element="aa:InvalidConditionFilterFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InsufficientActivationRuleFault">
+    <wsdl:part name="parameters" element="aa:InsufficientActivationRuleFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ActionRuleNotFoundFault">
+    <wsdl:part name="parameters" element="aa:ActionRuleNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidActivationTimeoutFault">
+    <wsdl:part name="parameters" element="aa:InvalidActivationTimeoutFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidFilterFault">
+    <wsdl:part name="parameters" element="wsnt:InvalidFilterFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <!-- Unsupported topic expression dialect used in event description  -->
+  <wsdl:message name="TopicExpressionDialectUnknownFault">
+    <wsdl:part name="parameters" element="wsnt:TopicExpressionDialectUnknownFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <!-- Error processing topic expression specified in event description -->
+  <wsdl:message name="InvalidTopicExpressionFault">
+    <wsdl:part name="parameters" element="wsnt:InvalidTopicExpressionFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <!-- Error processing message content filter specified in event description -->
+  <wsdl:message name="InvalidMessageContentExpressionFault">
+    <wsdl:part name="parameters" element="wsnt:InvalidMessageContentExpressionFault"/>
+  </wsdl:message>
+
+  <!--===============================-->
+  <wsdl:portType name="Action">
+    <wsdl:operation name="GetActionTemplates">
+      <wsdl:documentation>
+        List the action templates supported by the Axis product.
+      </wsdl:documentation>
+      <wsdl:input message="aa:GetActionTemplatesRequest"/>
+      <wsdl:output message="aa:GetActionTemplatesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddActionConfiguration">
+      <wsdl:documentation>
+        Add a new action configuration.
+      </wsdl:documentation>
+      <wsdl:input message="aa:AddActionConfigurationRequest"/>
+      <wsdl:output message="aa:AddActionConfigurationResponse"/>
+      <wsdl:fault name="ActionTemplateNotFoundFault"
+                  message="aa:ActionTemplateNotFoundFault"/>
+      <wsdl:fault name="ParametersMissmatchFault"
+                  message="aa:ParametersMissmatchFault"/>
+      <wsdl:fault name="InvalidActionConfigurationFault"
+                  message="aa:InvalidActionConfigurationFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActionConfiguration">
+      <wsdl:documentation>
+        Remove an action configuration.
+      </wsdl:documentation>
+      <wsdl:input message="aa:RemoveActionConfigurationRequest"/>
+      <wsdl:output message="aa:RemoveActionConfigurationResponse"/>
+      <wsdl:fault name="ActionConfigurationNotFoundFault"
+                  message="aa:ActionConfigurationNotFoundFault"/>
+      <wsdl:fault name="ActionConfigurationIsInUseFault"
+                  message="aa:ActionConfigurationIsInUseFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetActionConfigurations">
+      <wsdl:documentation>
+        List currently stored action configurations.
+      </wsdl:documentation>
+      <wsdl:input message="aa:GetActionConfigurationsRequest"/>
+      <wsdl:output message="aa:GetActionConfigurationsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipientTemplates">
+      <wsdl:documentation>
+        List the recipient templates supported by the Axis product.
+      </wsdl:documentation>
+      <wsdl:input message="aa:GetRecipientTemplatesRequest"/>
+      <wsdl:output message="aa:GetRecipientTemplatesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddRecipientConfiguration">
+      <wsdl:documentation>
+        Add a new recipient configuration.
+      </wsdl:documentation>
+      <wsdl:input message="aa:AddRecipientConfigurationRequest"/>
+      <wsdl:output message="aa:AddRecipientConfigurationResponse"/>
+      <wsdl:fault name="RecipientTemplateNotFoundFault"
+                  message="aa:RecipientTemplateNotFoundFault"/>
+      <wsdl:fault name="ParametersMissmatchFault"
+                  message="aa:ParametersMissmatchFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRecipientConfiguration">
+      <wsdl:documentation>
+        Remove a recipient configuration.
+      </wsdl:documentation>
+      <wsdl:input message="aa:RemoveRecipientConfigurationRequest"/>
+      <wsdl:output message="aa:RemoveRecipientConfigurationResponse"/>
+      <wsdl:fault name="RecipientConfigurationNotFoundFault"
+                  message="aa:RecipientConfigurationNotFoundFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipientConfigurations">
+      <wsdl:documentation>
+        List currently stored recipient configurations.
+      </wsdl:documentation>
+      <wsdl:input message="aa:GetRecipientConfigurationsRequest"/>
+      <wsdl:output message="aa:GetRecipientConfigurationsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddActionRule">
+      <wsdl:documentation>
+        Add a new action rule.
+      </wsdl:documentation>
+      <wsdl:input message="aa:AddActionRuleRequest"/>
+      <wsdl:output message="aa:AddActionRuleResponse"/>
+      <wsdl:fault name="InvalidConditionFilterFault"
+                  message="aa:InvalidConditionFilterFault"/>
+      <wsdl:fault name="ActionConfigurationNotFoundFault"
+                  message="aa:ActionConfigurationNotFoundFault"/>
+      <wsdl:fault name="InsufficientActivationRuleFault"
+                  message="aa:InsufficientActivationRuleFault"/>
+      <wsdl:fault name="InvalidActivationTimeoutFault"
+                  message="aa:InvalidActivationTimeoutFault"/>
+      <wsdl:fault name="InvalidFilterFault"
+                  message="aa:InvalidFilterFault"/>
+      <wsdl:fault name="TopicExpressionDialectUnknownFault"
+                  message="aa:TopicExpressionDialectUnknownFault"/>
+      <wsdl:fault name="InvalidTopicExpressionFault"
+                  message="aa:InvalidTopicExpressionFault"/>
+      <wsdl:fault name="InvalidMessageContentExpressionFault"
+                  message="aa:InvalidMessageContentExpressionFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetActionRules">
+      <wsdl:documentation>
+        List currently stored action rules.
+      </wsdl:documentation>
+      <wsdl:input message="aa:GetActionRulesRequest"/>
+      <wsdl:output message="aa:GetActionRulesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActionRule">
+      <wsdl:documentation>
+        Remove an action rule. The action will not be executed if the rule is removed.
+      </wsdl:documentation>
+      <wsdl:input message="aa:RemoveActionRuleRequest"/>
+      <wsdl:output message="aa:RemoveActionRuleResponse"/>
+      <wsdl:fault name="ActionRuleNotFoundFault"
+                  message="aa:ActionRuleNotFoundFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--===============================-->
+  <wsdl:binding name="ActionBinding" type="aa:Action">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <!--===============================-->
+    <wsdl:operation name="GetActionTemplates">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/GetActionTemplates"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="AddActionConfiguration">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/AddActionConfiguration"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ActionTemplateNotFoundFault">
+        <soap:fault name="ActionTemplateNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ParametersMissmatchFault">
+        <soap:fault name="ParametersMissmatchFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidActionConfigurationFault">
+        <soap:fault name="InvalidActionConfigurationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="RemoveActionConfiguration">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/RemoveActionConfiguration"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ActionConfigurationNotFoundFault">
+        <soap:fault name="ActionConfigurationNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ActionConfigurationIsInUseFault">
+        <soap:fault name="ActionConfigurationIsInUseFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="GetActionConfigurations">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/GetActionConfigurations"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="GetRecipientTemplates">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/GetRecipientTemplates"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="AddRecipientConfiguration">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/AddRecipientConfiguration"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RecipientTemplateNotFoundFault">
+        <soap:fault name="RecipientTemplateNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ParametersMissmatchFault">
+        <soap:fault name="ParametersMissmatchFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="RemoveRecipientConfiguration">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/RemoveRecipientConfiguration"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RecipientConfigurationNotFoundFault">
+        <soap:fault name="RecipientConfigurationNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="GetRecipientConfigurations">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/GetRecipientConfigurations"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="AddActionRule">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/AddActionRule"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidConditionFilterFault">
+        <soap:fault name="InvalidConditionFilterFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ActionConfigurationNotFoundFault">
+        <soap:fault name="ActionConfigurationNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InsufficientActivationRuleFault">
+        <soap:fault name="InsufficientActivationRuleFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidActivationTimeoutFault">
+        <soap:fault name="InvalidActivationTimeoutFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidFilterFault">
+        <soap:fault name="InvalidFilterFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TopicExpressionDialectUnknownFault">
+        <soap:fault name="TopicExpressionDialectUnknownFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidTopicExpressionFault">
+        <soap:fault name="InvalidTopicExpressionFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidMessageContentExpressionFault">
+        <soap:fault name="InvalidMessageContentExpressionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="GetActionRules">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/GetActionRules"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="RemoveActionRule">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/action1/RemoveActionRule"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ActionRuleNotFoundFault">
+        <soap:fault name="ActionRuleNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

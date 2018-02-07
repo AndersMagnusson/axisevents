@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="wsdl-viewer.xsl"?>
+<wsdl:definitions targetNamespace="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+    <wsdl:documentation xmlns="http://www.w3.org/1999/xhtml">
+	<h2>COPYRIGHT NOTICE</h2>
+	<p>
+		&#169; Axis Communications AB, 2011
+	</p>
+	<p>
+		This document is copyright protected and is the property of Axis
+		Communications AB and may not be copied, reproduced or distributed
+		in any way without the prior written consent of Axis
+		Communications AB.
+	</p>
+	<h2>TRADEMARK NOTICE</h2>
+	<p>
+		AXIS COMMUNICATIONS, AXIS, ETRAX, ARTPEC and VAPIX are registered
+		trademarks or trademark applications of Axis AB in various
+		jurisdictions. All other company names and products are trademarks
+		or registered trademarks of their respective companies. We reserve
+		the right to introduce modifications without notice.
+	</p>
+	<h2>Terms of Use</h2>
+	<p>
+		The use of the AXIS VAPIX application programming interface
+		(hereinafter referred to as "the INTERFACE" as further specified
+		below, is subject to the terms and conditions of the License
+		Agreement below. By using the INTERFACE and the written
+		specification of the INTERFACE (hereinafter referred to as “the
+		INTERFACE DESCRIPTION"), whether in whole or in part, you agree to
+		be bound by the terms of the License Agreement.
+	</p>
+	<h2>VAPIX&#174; LICENSE AGREEMENT</h2>
+	<p>
+		This is a legal agreement (the “License Agreement”) between you
+		(either individual or an entity) and Axis Communications AB
+		(hereinafter referred to as “Axis”).
+	</p>
+	<h3>1. GRANT OF LICENSE</h3>
+	<p>
+		Axis hereby grants to you the right to use the INTERFACE and the
+		INTERFACE DESCRIPTION for the sole and limited purpose of creating,
+		manufacturing and developing a solution that integrates any unit
+		or portion included in the Axis network products (as defined by
+		Axis at its discretion) and to market, sell and distribute any such
+		solution.
+	</p>
+	<h3>2. COPYRIGHT</h3>
+	<p>
+		The INTERFACE and the INTERFACE DESCRIPTION are owned by Axis and
+		are protected by copyright laws and international treaty
+		provisions. Any use of the INTERFACE and/or the INTERFACE
+		DESCRIPTION outside the limited purpose set forth in Section 1
+		above is strictly prohibited.
+	</p>
+	<h3>3. NO REVERSE ENGINEERING</h3>
+	<p>
+		You may not reverse engineer, decompile, or disassemble the
+		INTERFACE except to the extent required to obtain interoperability
+		with other independently created computer programs as permitted by
+		mandatory law.
+	</p>
+	<h3>4. TERMINATION</h3>
+	<p>
+		This License is effective until terminated. Your rights under this
+		License will terminate automatically without notice from Axis if
+		you fail to comply with any term(s) of this License. Upon the
+		termination of this License, you shall cease all use and
+		disposition of the INTERFACE and/or THE INTERFACE DESCRIPTION
+		whether for the purpose set forth in Section 1 above or not.
+	</p>
+	<h3>5. GOVERNING LAW</h3>
+	<p>
+		This agreement shall be deemed performed in and shall be construed
+		by the laws of Sweden. All disputes in connection with this
+		agreement shall be finally settled by arbitration in accordance
+		with the Rules of the Arbitration Institute of the Stockholm Chamber
+		of Commerce. The place of arbitration shall be Malmö, Sweden. The
+		language of the proceedings, documentation and the award shall be
+		English.
+	</p>
+	<h3>6. DISCLAIMER</h3>
+	<p>
+	   6.1 THE INTERFACE AND THE INTERFACE DESCRIPTION ARE DELIVERED FREE
+	   OF CHARGE AND “AS IS” WITHOUT WARRANTY OF ANY KIND. THE ENTIRE RISK
+	   AS TO THE USE, RESULTS AND PERFORMANCE OF THE INTERFACE AND THE
+	   INTERFACE DESCRIPTION IS ASSUMED BY THE USER/YOU. AXIS DISCLAIMS
+	   ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
+	   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	   A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT AND PRODUCT LIABILITY,
+	   OR ANY WARRANTY ARISING OUT OF ANY PROPOSAL, SPECIFICATION OR SAMPLE
+	   WITH RESPECT TO THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.2 YOU ARE YOURSELF RESPONSIBLE FOR EXAMINING WHETHER THE INTERFACE
+	  AND THE INTERFACE DESCRIPTION ARE ENCUMBERED BY OR INFRINGES UPON A
+	  RIGHT HELD BY A THIRD PARTY. AXIS, WHO HAS NOT UNDERTAKEN ANY SUCH
+	  INVESTIGATIONS, HAS NO KNOWLEDGE OF NOR DOES AXIS ACCEPT ANY
+	  LIABILITY FOR ANY SUCH ENCUMBRANCES OR INFRINGEMENTS.
+	</p>
+	<p>
+	  6.3 YOU UNDERTAKE NOT TO PURSUE ANY CLAIMS WHATSOEVER AGAINST AXIS
+	  OR ITS AFFILIATES RELATING TO OR EMANATING FROM THE INTERFACE AND
+	  THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.4 AXIS SHALL NOT BE LIABLE FOR LOSS OF DATA, LOSS OF PRODUCTION,
+	  LOSS OF PROFIT, LOSS OF USE, LOSS OF CONTRACTS OR FOR ANY OTHER
+	  CONSEQUENTIAL, ECONOMIC OR INDIRECT LOSS WHATSOEVER IN RESPECT OF
+	  USE OR DISPOSITION OF THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.5 AXIS TOTAL LIABILITY FOR ALL CLAIMS IN ACCORDANCE WITH THE USE
+	  OF THE INTERFACE AND THE INTERFACE DESCRIPTION SHALL NOT EXCEED THE
+	  PRICE PAID FOR THE INTERFACE AND THE INTERFACE DESCRIPTION.
+	</p>
+	<p>
+	  6.6 YOU SHALL INDEMNIFY AND HOLD AXIS AND ITS AFFILIATES HARMLESS
+	  FROM ANY CLAIMS WHATSOEVER FROM ANY THIRD PARTY AGAINST AXIS OR ITS
+	  AFFILIATES RELATING TO OR EMANATING FROM YOUR USE OF THE INTERFACE
+	  AND THE INTERFACE DESCRIPTION UNDER THIS LICENSE AGREEMENT. THE
+	  FOREGOING INDEMNIFICATION INCLUDES BUT IS NOT LIMITED TO ANY AND ALL
+	  DAMAGES, COSTS AND EXPENSES (INCLUDING REASONABLE ATTORNEYS’ FEES).
+	</p>
+	<h1>VAPIX&#174; Event Service API</h1>
+	<p>
+		 VAPIX&#174; Event Service API is used to manage events.
+	  </p>
+	  <p>
+		Supported operations:
+	  </p>
+	  <ul>
+	    <li>
+			<code>GetEventInstances</code> - list currently available events
+		</li>
+		<li>
+			<code>AddScheduledEvent</code> - create a scheduled event
+		</li>
+		<li>
+			<code>GetScheduledEvents</code> - list scheduled events
+		</li>
+		<li>
+			<code>RemoveScheduledEvent</code> - remove a scheduled event
+		</li>
+		<li>
+			<code>ChangeVirtualInputState</code> - emit virtual input events
+		</li>
+	  </ul>
+	  <p>
+		More information about VAPIX&#174; is available on the
+		<a href="http://www.axis.com/techsup/cam_servers/dev/cam_http_api_index.php">
+		Developer pages at www.axis.com</a>
+	  </p>
+	  <h2>Events</h2>
+	  <p>
+		An <b>event</b> is emitted when the Axis product detects an occurence
+		of some kind, for example motion in the camera's field of view or a
+		signal from an I/O port. Events can be used in action rules (as
+		start event or as a condition) and in notification subscriptions.
+	   </p>
+	   <p>
+		Events can be stateful or stateless. Events are added and removed
+		dynamically depending on device configuration. For example, when a
+		motion detection window is configured, a motion detection event is
+		added.
+	   </p>
+	   <h3>List Events</h3>
+	    <p>
+		  Use <code>GetEventInstances</code> to list the currently available
+		  events. The list of events can be used to construct event filter
+		  expressions for notification subscriptions and for action rule
+		  configuration.
+		</p>
+		<p>
+		   The events are listed as a <code>wstop:TopicSet</code> tree
+		   containing <code>aev:MessageInstance</code> elements in each
+		   leaf topic. The <code>aev:MessageInstance</code> element
+		   describes the content of the event.
+		</p>
+		<p>
+           The topic tree has the following syntax:
+        <pre>
+&lt;aev:GetEventInstancesResponse&gt;
+&lt;wstop:TopicSet&gt;
+&lt;TOPIC1 aev:NiceName="topic1_nicename" wstop:topic="true"&gt;
+  &lt;TOPIC2 aev:NiceName="topic2_nicename" wstop:topic="true"&gt;
+    &lt;aev:MessageInstance aev:isProperty="true"&gt;
+      &lt;aev:SourceInstance&gt;
+        &lt;aev:SimpleItemInstance aev:NiceName="key_nicename" Type="VALUETYPE" Name="KEYNAME"&gt;
+          &lt;aev:Value aev:NiceName="value1_nicename"&gt;value1&lt;/aev:Value&gt;
+          &lt;aev:Value aev:NiceName="value2_nicename"&gt;value2&lt;/aev:Value&gt;
+          ...
+        &lt;/aev:SimpleItemInstance&gt;
+        ...
+      &lt;/aev:SourceInstance&gt;
+      &lt;aev:DataInstance&gt;
+        &lt;aev:SimpleItemInstance aev:NiceName="NICENAME" Type="VALUETYPE" Name="KEYNAME" isPropertyState="true"&gt;
+          &lt;aev:Value&gt;VALUE1&lt;/aev:Value&gt;
+          &lt;aev:Value&gt;VALUE2&lt;/aev:Value&gt;
+          ...
+        &lt;/aev:SimpleItemInstance&gt;
+      &lt;/aev:DataInstance&gt;
+    &lt;/aev:MessageInstance&gt;
+  &lt;/TOPIC2&gt;
+&lt;/TOPIC1&gt;
+&lt;/wstop:TopicSet&gt;
+&lt;/aev:GetEventInstancesResponse&gt;
+        </pre>
+		  The prefix <code>aev</code> is a placeholder for the namespace
+		  <code>http://www.axis.com/vapix/ws/event1</code>.
+		</p>
+		<p>
+		  Each <code>MessageInstance</code> element describes one type of event.
+		  If the event is stateful, the <code>isProperty</code> attribute is true. If
+		  the event is stateless, the <code>isProperty</code> attribute is omitted.
+		</p>
+		<p>
+		  The <code>MessageInstance</code> element lists <code>SourceInstance</code> and
+		  <code>DataInstance</code> elements. Depending on the type of event,
+		  <code>SourceInstance</code> or <code>DataInstance</code> can be omitted.
+		  An event may have several <code>DataInstance</code> elements.
+		</p>
+		<p>
+		  <code>SourceInstance</code> contains a <code>SimpleItem</code> describing
+		  the source of the event, for example an I/O port. <code>DataInstance</code>
+		  contains a <code>SimpleItem</code> describing the data that generates the event.
+		</p>
+		<p>
+		  SimpleItems are described by <code>SimpleItemInstance</code> elements.
+		  Each <code>SimpleItemInstance</code> contains attributes and a list of
+		  <code>Value</code> child elements. The <code>Name</code> attribute is
+		  the name of the <code>SimpleItem</code>. The <code>Type</code> attribute
+		  describes the datatype for the <code>SimpleItem</code> values.
+		  The <code>NiceName</code> attribute is optional and contains the Key's nice name.
+		</p>
+		<p>
+		  If the event is stateful, one of the <code>DataInstance</code> elements
+		  contain a <code>SimpleItem</code> of type boolean with
+		  the <code>isPropertyState</code> attribute set to true.
+		  This <code>SimpleItem</code> describes the current state of the event
+		  (for example the state of the I/O port).
+		</p>
+		<p>
+		  For stateless event, the <code>isPropertyState</code> attribute is omitted.
+		</p>
+		<p>
+		  The <code>Value</code> elements contains the possible values for
+		  the <code>SimpleItem</code>. The <code>NiceName</code> attribute is optional.
+		</p>
+
+      <h2>Scheduled Events</h2>
+	  <p>
+		A <b>scheduled event</b> is active during specific time periods
+		defined by an iCalendar schedule. Scheduled events can be used in
+		action rules and in notification subscriptions.
+	  </p>
+	  <p>
+	  There are two types of schedules:
+	  <ul>
+		<li>An <b>interval schedule</b> emits a stateful event at the
+		scheduled start time. The emitted event will remain active until
+		the scheduled end time. The schedule can be repeated according to
+		a recurring rule. Example: A schedule named "Office Hours" which
+		is active from 9 a.m. to 5 p.m. Monday through Friday.</li>
+		<li>A <b>pulse schedule</b> emits a stateless event at the
+		scheduled start time and can be repeated according to a recurring
+		rule. Pulse schedules are typically used for recurrences, for
+		example to run an action once every hour.  </li>
+	  </ul>
+	  </p>
+	  <p>
+		Supported operations:
+	  </p>
+	  <ul>
+	    <li>
+			<code>AddScheduledEvent</code> - create a scheduled event
+		</li>
+		<li>
+			<code>GetScheduledEvents</code> - list scheduled events
+		</li>
+		<li>
+			<code>RemoveScheduledEvent</code> - remove a scheduled event
+		</li>
+	  </ul>
+      <h3>Schedules</h3>
+		<p>
+		A schedule is specified by providing a start time, an end time and a recurring rule.
+	 	The schedule format is designated by a wrapper element whose name defines the syntax and semantics of
+		the schedule description format. The supported schedule description format is a subset of the iCalendar format specified in RFC 5545.
+	  <pre>
+&lt;aev:ICalendar&gt;
+  DTSTART:&lt;start date&gt;
+  DTEND:&lt;end date&gt;
+  RRULE:&lt;recurring rule&gt;
+&lt;/aev:ICalendar&gt;
+        </pre>
+        <code>&lt;start date&gt;</code> is the start date and time of the first
+        occurrence of the event.  Both date and time are required
+		and should be specified according to ISO 8601. The time is
+		the product's local time; time zone information is not supported.
+	</p>
+	<p>
+	For interval schedules, <code>&lt;end date&gt;</code> is the end date and time of the first occurrence of the event. Use the same format as for
+	<code>&lt;start date&gt;</code>. For pulse schedules, <code>&lt;end date&gt;</code> should be omitted.
+	</p>
+	<p>
+        <code>&lt;recurring rule&gt;</code> specifies the repetitions of the event.
+        The following subset of the iCalendar specification is supported:
+        <pre>
+RRULE:FREQ=YEARLY[;BYMONTH=&lt;1-12&gt;,...][;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=MONTHLY[;BYDAY=[[-]&lt;0-5&gt;]&lt;MO|TU|WE|TH|FR|SA|SU&gt;,...][;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=WEEKLY[;BYDAY=&lt;MO|TU|WE|TH|FR|SA|SU&gt;,...][;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=DAILY[;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=HOURLY[;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=MINUTELY[;INTERVAL=&lt;1-*&gt;]
+RRULE:FREQ=SECONDLY[;INTERVAL=&lt;1-*&gt;]
+        </pre>
+      </p>
+      <h3>Scheduled Event Format</h3>
+	   <p>
+	   Events from an interval schedule are emitted under
+		the <i>UserAlarm/Recurring/Interval</i> topic.
+		The <code>SourceInstance</code> contains a SimpleItem
+		with <code>Name</code> attribute <code>id</code>. The <code>Value</code> element of
+		this SimpleItem contains the Event ID assigned to the event. The <code>DataInstance</code> contains a SimpleItem with
+		<code>Name</code> attribute is <code>active</code>. The corresponding <code>Value</code> is <code>1</code> if the event is active
+		and <code>0</code> otherwise.	An event is emitted each time the schedule's active status changes.
+		The current status can be queried by
+		the event notification service. Events emitted by an interval schedule are stateful.
+	   </p>
+	   <p>
+        Events from a pulse schedule are   emitted under the <i>UserAlarm/Recurring/Pulse</i>
+		topic. The <code>SourceInstance</code> contains a SimpleItem with
+		<code>Name</code> attribute <code>id</code>. The
+		<code>Value</code> element of this SimpleItem contains the
+		Event ID assigned to the event.
+		Events emitted by a pulse schedule are stateless.
+      </p>
+	   <h2>Virtual Input Events</h2>
+	   <p>
+	       A <b>virtual input event</b> is emitted when the state of a virtual input port is changed.
+			Virtual input ports can be used in the same way as (physical) input ports.
+			A virtual input port is in one of the states:
+			<code>true</code> and <code>false</code>.
+	   </p>
+		<p>
+			Use <code>ChangeVirtualInputState</code> to emit a virtual input event. A emitted virtual input event is stateful.
+		</p>
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.axis.com/vapix/ws/event1"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+        xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+        elementFormDefault="qualified">
+      <xs:import namespace="http://docs.oasis-open.org/wsn/t-1"
+          schemaLocation="http://docs.oasis-open.org/wsn/t-1.xsd"/>
+      <xs:import namespace="http://docs.oasis-open.org/wsn/b-2"
+          schemaLocation="http://docs.oasis-open.org/wsn/b-2.xsd"/>
+      <!--===============================-->
+      <xs:element name="GetEventInstances">
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetEventInstancesResponse">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element ref="wstop:TopicSet"/>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddScheduledEvent">
+	<xs:complexType>
+	  <xs:sequence>
+            <xs:element name="NewScheduledEvent"
+                        type="aev:NewScheduledEvent"/>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="AddScheduledEventResponse">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="EventID" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  The Event ID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveScheduledEvent">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="EventID" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Event ID of the scheduled event to be removed.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="RemoveScheduledEventResponse">
+	<xs:complexType>
+	  <xs:sequence>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetScheduledEvents">
+	<xs:complexType>
+	  <xs:sequence>
+            <xs:element name="ScheduleFilter"
+                        type="aev:ScheduleFilter"
+                        minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Optional. Filter the schedules to be included.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="GetScheduledEventsResponse">
+	<xs:complexType>
+	  <xs:sequence>
+            <xs:element name="ScheduledEvents"
+                        type="aev:ScheduledEvents">
+              <xs:annotation>
+                <xs:documentation>
+                  List of requested scheduled events.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+
+      <!--====== Faults Elements ========-->
+
+      <xs:element name="ScheduledEventNotFoundFault">
+        <xs:annotation>
+          <xs:documentation>
+            The specified scheduled event does not exist.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InvalidScheduleFault">
+        <xs:annotation>
+          <xs:documentation>
+            Failed to parse specified schedule description.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="InvalidScheduledEventIDFault">
+        <xs:annotation>
+          <xs:documentation>
+            The specified Event ID contains illegal characters.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+      <!--===============================-->
+      <xs:element name="ScheduledEventAlreadyExistsFault">
+        <xs:annotation>
+          <xs:documentation>
+            A scheduled event with the specified Event ID already exists.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+      </xs:element>
+
+      <!--  Virtual Inputs -->
+      <!--===============================-->
+      <xs:element name="ChangeVirtualInputState">
+        <xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="port" type="xs:int"/>
+	    <xs:element name="active" type="xs:boolean"/>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeVirtualInputStateResponse">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="stateChanged" type="xs:boolean"/>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!--===============================-->
+
+      <!--===== Types Definitions =======-->
+
+      <xs:complexType name="NewScheduledEvent">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the scheduled event.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="EventID" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                The Event ID. If omitted, an autogenerated
+                Event ID will be assigned.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+      	  <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for this schedule.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Schedule" type="aev:Schedule"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ScheduledEvents">
+        <xs:sequence>
+          <xs:element name="ScheduledEvent"
+                      type="aev:ScheduledEvent"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Description of the scheduled event.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ScheduledEvent">
+        <xs:sequence>
+          <xs:element name="EventID" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                The Event ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+      	  <xs:element name="Name" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                User defined name for the schedule.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Schedule" type="aev:Schedule"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="Schedule">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the schedule.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="ICalendar" type="aev:ICalendar">
+            <xs:annotation>
+              <xs:documentation>
+                Schema specification in iCalendar format.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ICalendar">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="Dialect"
+                          type="xs:anyURI"
+                          default="http://www.axis.com/vapix/ws/ical1">
+              <xs:annotation>
+		<xs:documentation>
+		  The dialect of the ICalendar value.
+		  Must be http://www.axis.com/vapix/ws/ical1
+		</xs:documentation>
+              </xs:annotation>
+	    </xs:attribute>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:complexType name="ScheduleFilter">
+        <xs:sequence>
+	  <xs:element name="ScheduleType"
+                      type="aev:ScheduledType"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                The schedule type to be included in the list:
+
+                Interval - include only interval schedules
+                Pulse - include only pulse schedules.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <!--===============================-->
+      <xs:simpleType name="ScheduledType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Interval"/>
+          <xs:enumeration value="Pulse"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <!--===============================-->
+  <wsdl:message name="GetEventInstancesRequest">
+    <wsdl:part name="parameters" element="aev:GetEventInstances"/>
+  </wsdl:message>
+  <wsdl:message name="GetEventInstancesResponse">
+    <wsdl:part name="parameters" element="aev:GetEventInstancesResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="AddScheduledEventRequest">
+    <wsdl:part name="parameters" element="aev:AddScheduledEvent"/>
+  </wsdl:message>
+  <wsdl:message name="AddScheduledEventResponse">
+    <wsdl:part name="parameters" element="aev:AddScheduledEventResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="RemoveScheduledEventRequest">
+    <wsdl:part name="parameters" element="aev:RemoveScheduledEvent"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveScheduledEventResponse">
+    <wsdl:part name="parameters" element="aev:RemoveScheduledEventResponse"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="GetScheduledEventsRequest">
+    <wsdl:part name="parameters" element="aev:GetScheduledEvents"/>
+  </wsdl:message>
+  <wsdl:message name="GetScheduledEventsResponse">
+    <wsdl:part name="parameters" element="aev:GetScheduledEventsResponse"/>
+  </wsdl:message>
+
+  <!--======= Virtual Inputs =========-->
+  <wsdl:message name="ChangeVirtualInputStateRequest">
+    <wsdl:part name="parameters" element="aev:ChangeVirtualInputState"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeVirtualInputStateResponse">
+    <wsdl:part name="parameters" element="aev:ChangeVirtualInputStateResponse"/>
+  </wsdl:message>
+
+  <!--====== Faults Messages ========-->
+
+  <wsdl:message name="ScheduledEventNotFoundFault">
+    <wsdl:part name="parameters" element="aev:ScheduledEventNotFoundFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidScheduleFault">
+    <wsdl:part name="parameters"
+               element="aev:InvalidScheduleFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="InvalidScheduledEventIDFault">
+    <wsdl:part name="parameters"
+               element="aev:InvalidScheduledEventIDFault"/>
+  </wsdl:message>
+  <!--===============================-->
+  <wsdl:message name="ScheduledEventAlreadyExistsFault">
+    <wsdl:part name="parameters"
+               element="aev:ScheduledEventAlreadyExistsFault"/>
+  </wsdl:message>
+
+  <!--===============================-->
+  <wsdl:portType name="Event">
+    <wsdl:operation name="GetEventInstances">
+      <wsdl:documentation>
+        List all events that can currently occur in the
+        Axis product.
+      </wsdl:documentation>
+      <wsdl:input message="aev:GetEventInstancesRequest"/>
+      <wsdl:output message="aev:GetEventInstancesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddScheduledEvent">
+      <wsdl:documentation>
+        Add a scheduled event. The scheduled event will emit events
+		according to the specified schedule.
+      </wsdl:documentation>
+      <wsdl:input message="aev:AddScheduledEventRequest"/>
+      <wsdl:output message="aev:AddScheduledEventResponse"/>
+      <wsdl:fault name="InvalidScheduleFault"
+                  message="aev:InvalidScheduleFault"/>
+      <wsdl:fault name="InvalidScheduledEventIDFault"
+                  message="aev:InvalidScheduledEventIDFault"/>
+      <wsdl:fault name="ScheduledEventAlreadyExistsFault"
+                  message="aev:ScheduledEventAlreadyExistsFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveScheduledEvent">
+      <wsdl:documentation>
+        Remove a schedule. No more events will be emitted according to this schedule.
+      </wsdl:documentation>
+      <wsdl:input message="aev:RemoveScheduledEventRequest"/>
+      <wsdl:output message="aev:RemoveScheduledEventResponse"/>
+      <wsdl:fault name="ScheduledEventNotFoundFault"
+                  message="aev:ScheduledEventNotFoundFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduledEvents">
+      <wsdl:documentation>
+        List scheduled events.
+      </wsdl:documentation>
+      <wsdl:input message="aev:GetScheduledEventsRequest"/>
+      <wsdl:output message="aev:GetScheduledEventsResponse"/>
+    </wsdl:operation>
+    <!--======== Virtual Inputs ========-->
+    <wsdl:operation name="ChangeVirtualInputState">
+      <wsdl:documentation>
+        Change the state of a virtual input port.
+      </wsdl:documentation>
+      <wsdl:input message="aev:ChangeVirtualInputStateRequest"/>
+      <wsdl:output message="aev:ChangeVirtualInputStateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--===============================-->
+  <wsdl:binding name="EventBinding" type="aev:Event">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <!--===============================-->
+    <wsdl:operation name="GetEventInstances">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/event1/GetEventInstances"/>
+      <wsdl:input>
+	<soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+	<soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="AddScheduledEvent">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/event1/AddScheduledEvent"/>
+      <wsdl:input>
+	<soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+	<soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidScheduleFault">
+        <soap:fault name="InvalidScheduleFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidScheduledEventIDFault">
+        <soap:fault name="InvalidScheduledEventIDFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ScheduledEventAlreadyExistsFault">
+        <soap:fault name="ScheduledEventAlreadyExistsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="RemoveScheduledEvent">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/event1/RemoveScheduledEvent"/>
+      <wsdl:input>
+	<soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+	<soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ScheduledEventNotFoundFault">
+        <soap:fault name="ScheduledEventNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--===============================-->
+    <wsdl:operation name="GetScheduledEvents">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/event1/GetScheduledEvents"/>
+      <wsdl:input>
+	<soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+	<soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--========= Virtual Inputs ========-->
+    <wsdl:operation name="ChangeVirtualInputState">
+      <soap:operation soapAction="http://www.axis.com/vapix/ws/event1/ChangeVirtualInputState"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>
