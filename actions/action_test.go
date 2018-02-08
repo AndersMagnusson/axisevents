@@ -2,16 +2,18 @@ package actions
 
 import (
 	"context"
+	"os"
 	"testing"
 )
 
 var (
-	username = ""
-	password = ""
-	address  = "192.168.1.217"
+	username = os.Getenv("axisevents-username")
+	password = os.Getenv("axisevents-password")
+	address  = os.Getenv("axisevents-address")
 )
 
 func TestGetActionConfigurationsLongRunning(t *testing.T) {
+	verifyEnvVariables(t)
 	handler := NewActionHandler(context.TODO(), username, password, address)
 	resp, err := handler.GetActionConfigurations()
 	if err != nil {
@@ -24,6 +26,7 @@ func TestGetActionConfigurationsLongRunning(t *testing.T) {
 }
 
 func TestGetActionTemplatesLongRunning(t *testing.T) {
+	verifyEnvVariables(t)
 	handler := NewActionHandler(context.TODO(), username, password, address)
 	resp, err := handler.GetActionTemplates()
 	if err != nil {
@@ -44,6 +47,7 @@ func TestGetActionTemplatesLongRunning(t *testing.T) {
 }
 
 func TestGetRecipientTemplatesLongRunning(t *testing.T) {
+	verifyEnvVariables(t)
 	handler := NewActionHandler(context.TODO(), username, password, address)
 	resp, err := handler.GetRecipientTemplates()
 	if err != nil {
@@ -68,6 +72,7 @@ func TestGetRecipientTemplatesLongRunning(t *testing.T) {
 }
 
 func TestGetActionRulesLongRunning(t *testing.T) {
+	verifyEnvVariables(t)
 	handler := NewActionHandler(context.TODO(), username, password, address)
 	resp, err := handler.GetActionRules()
 	if err != nil {
@@ -80,6 +85,7 @@ func TestGetActionRulesLongRunning(t *testing.T) {
 }
 
 func TestAddGetRemoveActions(t *testing.T) {
+	verifyEnvVariables(t)
 	// config := newTestAddConfiguration("HubbaIsTesting")
 	// SoapDo(username, password, address, "http://www.axis.com/vapix/ws/action1/AddActionConfiguration", config)
 	configName := "hubbatest"
@@ -183,4 +189,18 @@ func newTestAddActionRule(name string, actionConfigurationID int) SoapEnvelope {
 	addActionRule := NewAddActionRule(actionRule)
 	body := NewSoapBody(addActionRule)
 	return NewSoapEnvelope(body)
+}
+
+func verifyEnvVariables(t *testing.T) {
+	if len(address) == 0 {
+		t.Fatal("You need to set env variable axisevents-address")
+	}
+
+	if len(username) == 0 {
+		t.Fatal("You need to set env variable axisevents-username")
+	}
+
+	if len(password) == 0 {
+		t.Fatal("You need to set env variable axisevents-password")
+	}
 }
