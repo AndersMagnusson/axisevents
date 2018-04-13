@@ -1,7 +1,7 @@
 package axisevents
 
 import (
-	"andersmagnusson/axis-events/actions"
+	"axisevents/actions"
 	"context"
 	"fmt"
 	"net/http"
