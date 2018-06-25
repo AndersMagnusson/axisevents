@@ -11,13 +11,27 @@ type Device struct {
 // NewMotionDetectionHandler creates a new MotionDetectionHandler which is used
 // to define what happens when a device detects motion.
 //
+// Supported versions:
+// 2,3,4 defaults to version 2
 // Supported actions:
 // Record video to the device SD-card.
-func NewMotionDetectionHandler(name string, enabled bool) MotionDetectionHandler {
+func NewMotionDetectionHandler(name string, enabled bool, version int) MotionDetectionHandler {
+	var topicExpression string
+	switch version {
+	case 2:
+		topicExpression = "tns1:RuleEngine/tnsaxis:VideoMotionDetection/motion"
+	case 3:
+		topicExpression = ""
+	case 4:
+		topicExpression = "tnsaxis:CameraApplicationPlatform/VMD/Camera1ProfileANY"
+	default:
+		topicExpression = "tns1:RuleEngine/tnsaxis:VideoMotionDetection/motion"
+	}
+
 	collector := collector{
 		name:            name,
 		enabled:         enabled,
-		topicExpression: "tns1:RuleEngine/tnsaxis:VideoMotionDetection/motion",
+		topicExpression: topicExpression,
 		messageContent:  `boolean(//SimpleItem[@Name="active" and @Value="1"])`,
 		properties:      make(map[string]interface{}),
 	}

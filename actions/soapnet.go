@@ -1,15 +1,14 @@
 package actions
 
 import (
-	"bytes"
 	"context"
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
-	"net/http"
+
+	dac "github.com/xinsnake/go-http-digest-auth-client"
 )
 
-var client = http.Client{}
 var segment = "/vapix/services"
 
 // SoapDo does the soap request.
@@ -20,16 +19,10 @@ func SoapDo(ctx context.Context, username string, password string, address strin
 	}
 
 	url := fmt.Sprintf("http://%s%s", address, segment)
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(data))
-	if err != nil {
-		return err
-	}
 
-	req.SetBasicAuth(username, password)
-	req.Header.Add("SOAPAction", soapAction)
-	req.Header.Add("Content-Type", "text/xml")
-	req = req.WithContext(ctx)
-	resp, err := client.Do(req)
+	dr := dac.NewRequest(username, password, "POST", url, string(data))
+	resp, err := dr.Execute()
+
 	if err != nil {
 		return err
 	}

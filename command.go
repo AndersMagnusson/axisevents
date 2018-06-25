@@ -1,10 +1,11 @@
 package axisevents
 
 import (
-	"andersmagnusson/axis-events/actions"
 	"context"
 	"fmt"
 	"net/http"
+
+	"github.com/AndersMagnusson/axisevents/actions"
 )
 
 // Command executes the request.
@@ -51,8 +52,8 @@ func (h *command) ExecuteOn(ctx context.Context, device Device) error {
 		return fmt.Errorf("Failed to add ActionConfiguration, %s", err.Error())
 	}
 
-	topixExpression := actions.NewTopicExpression("tns1:RuleEngine/tnsaxis:VideoMotionDetection/motion")
-	messageContent := actions.NewMessageContent(`boolean(//SimpleItem[@Name="active" and @Value="1"])`)
+	topixExpression := actions.NewTopicExpression(h.collector.topicExpression)
+	messageContent := actions.NewMessageContent(h.collector.messageContent)
 	startEvent := actions.NewStartEvent(topixExpression, messageContent)
 
 	_, err = handler.AddActionRule(h.collector.name, h.collector.enabled, startEvent, configID)
