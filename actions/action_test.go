@@ -140,7 +140,7 @@ func assertActionConfiguration(t *testing.T, handler ActionHandler, configID int
 	}
 
 	if foundConfig != expectedToBeFound {
-		t.Errorf("Should find actionconfiguration %b but was %b %+v", foundConfig, expectedToBeFound, configs)
+		t.Errorf("Should find actionconfiguration %t but was %t %+v", foundConfig, expectedToBeFound, configs)
 	}
 }
 
@@ -156,7 +156,7 @@ func assertActionRule(t *testing.T, handler ActionHandler, ruleID int, ruleName 
 		}
 	}
 	if foundRule != expectedToBeFound {
-		t.Errorf("Should find actionrule %b but was %b %+v", foundRule, expectedToBeFound, rules)
+		t.Errorf("Should find actionrule %t but was %t %+v", foundRule, expectedToBeFound, rules)
 	}
 }
 
