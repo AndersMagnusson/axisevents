@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+    <act:AddActionConfiguration>
+      <act:NewActionConfiguration>
+        <act:Name>Send video clip through HTTPS while the rule is active</act:Name>
+        <act:TemplateToken>com.axis.action.unlimited.send_videoclip.https</act:TemplateToken>
+        <act:Parameters>
+          <act:Parameter Name="stream_options" Value="&amp;camera=1&amp;streamprofile=ACC_High_ACCC8E5F4682_0"/>
+          <act:Parameter Name="pre_duration" Value="5000"/>
+          <act:Parameter Name="post_duration" Value="5000"/>
+          <act:Parameter Name="create_folder" Value="hubba"/>
+          <act:Parameter Name="filename" Value="video%y-%m-%d_%H-%M-%S-%f_#s.mkv"/>
+          <act:Parameter Name="max_file_size" Value="0"/>
+          <act:Parameter Name="max_duration" Value="0"/>
+          <act:Parameter Name="custom_params" Value=""/>
+          <act:Parameter Name="upload_url" Value="https://www.hubbabsasasaasasdasd.se"/>
+          <act:Parameter Name="login" Value=""/>
+          <act:Parameter Name="password" Value=""/>
+          <act:Parameter Name="validate_server_cert" Value="0"/>
+          <act:Parameter Name="qos" Value="0"/>
+          <act:Parameter Name="proxy_host" Value=""/>
+          <act:Parameter Name="proxy_port" Value=""/>
+          <act:Parameter Name="proxy_login" Value=""/>
+          <act:Parameter Name="proxy_password" Value=""/>
+        </act:Parameters>
+      </act:NewActionConfiguration>
+    </act:AddActionConfiguration>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+
+    <act:AddActionRule>
+      <act:NewActionRule>
+        <act:Name>testamders</act:Name>
+        <act:Enabled>true</act:Enabled>
+
+        <act:Conditions>
+          <act:Condition>
+            <wsnt:TopicExpression Dialect="http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete">tnsaxis:CameraApplicationPlatform/VMD/Camera1ProfileANY</wsnt:TopicExpression>
+            <wsnt:MessageContent Dialect="http://www.onvif.org/ver10/tev/messageContentFilter/ItemFilter">boolean(//SimpleItem[@Name="active" and @Value="1"])</wsnt:MessageContent>
+          </act:Condition>
+        </act:Conditions>
+
+        <act:PrimaryAction>6</act:PrimaryAction>
+      </act:NewActionRule>
+    </act:AddActionRule>
+
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+<!-- no -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+    <act:AddActionConfiguration>
+      <act:NewActionConfiguration>
+        <act:Name>Send video clip through HTTPS</act:Name>
+        <act:TemplateToken>com.axis.action.fixed.send_videoclip.https</act:TemplateToken>
+        <act:Parameters>
+          <act:Parameter Name="stream_options" Value="&amp;camera=1"/>
+          <act:Parameter Name="pre_duration" Value="5000"/>
+          <act:Parameter Name="post_duration" Value="5000"/>
+          <act:Parameter Name="create_folder" Value=""/>
+          <act:Parameter Name="filename" Value="video%y-%m-%d_%H-%M-%S-%f_#s.mkv"/>
+          <act:Parameter Name="max_file_size" Value="0"/>
+          <act:Parameter Name="max_duration" Value="0"/>
+          <act:Parameter Name="custom_params" Value=""/>
+          <act:Parameter Name="upload_url" Value="https://www.hubbabsasasaasasdasd.se"/>
+          <act:Parameter Name="login" Value=""/>
+          <act:Parameter Name="password" Value=""/>
+          <act:Parameter Name="validate_server_cert" Value="0"/>
+          <act:Parameter Name="qos" Value="0"/>
+          <act:Parameter Name="proxy_host" Value=""/>
+          <act:Parameter Name="proxy_port" Value=""/>
+          <act:Parameter Name="proxy_login" Value=""/>
+          <act:Parameter Name="proxy_password" Value=""/>
+        </act:Parameters>
+      </act:NewActionConfiguration>
+    </act:AddActionConfiguration>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+
+    <act:AddActionRule>
+      <act:NewActionRule>
+        <act:Name>anderstest2</act:Name>
+        <act:Enabled>false</act:Enabled>
+
+        <act:Conditions>
+          <act:Condition>
+            <wsnt:TopicExpression Dialect="http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete">tnsaxis:CameraApplicationPlatform/VMD/Camera1ProfileANY</wsnt:TopicExpression>
+            <wsnt:MessageContent Dialect="http://www.onvif.org/ver10/tev/messageContentFilter/ItemFilter">boolean(//SimpleItem[@Name="active" and @Value="1"])</wsnt:MessageContent>
+          </act:Condition>
+        </act:Conditions>
+
+        <act:PrimaryAction>18</act:PrimaryAction>
+      </act:NewActionRule>
+    </act:AddActionRule>
+
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+<!-- Recording -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+
+    <act:AddActionRule>
+      <act:NewActionRule>
+        <act:Name>ACC_Motion_ACCC8E5F4682_0</act:Name>
+        <act:Enabled>true</act:Enabled>
+
+        <act:Conditions>
+          <act:Condition>
+            <wsnt:TopicExpression Dialect="http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete">tnsaxis:CameraApplicationPlatform/VMD/Camera1ProfileANY</wsnt:TopicExpression>
+            <wsnt:MessageContent Dialect="http://www.onvif.org/ver10/tev/messageContentFilter/ItemFilter">boolean(//SimpleItem[@Name="active" and @Value="1"])</wsnt:MessageContent>
+          </act:Condition>
+          <act:Condition>
+            <wsnt:TopicExpression Dialect="http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete">tnsaxis:Storage/Disruption</wsnt:TopicExpression>
+            <wsnt:MessageContent Dialect="http://www.onvif.org/ver10/tev/messageContentFilter/ItemFilter">boolean(//SimpleItem[@Name="disruption" and @Value="0"]) and boolean(//SimpleItem[@Name="disk_id" and @Value="NetworkShare"])</wsnt:MessageContent>
+          </act:Condition>
+        </act:Conditions>
+
+        <act:PrimaryAction>20</act:PrimaryAction>
+      </act:NewActionRule>
+    </act:AddActionRule>
+
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics">
+
+    <act:AddActionRule>
+      <act:NewActionRule>
+        <act:Name>andersmn</act:Name>
+        <act:Enabled>true</act:Enabled>
+
+        <act:Conditions>
+          <act:Condition>
+            <wsnt:TopicExpression Dialect="http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete">tnsaxis:CameraApplicationPlatform/VMD/Camera1ProfileANY</wsnt:TopicExpression>
+            <wsnt:MessageContent Dialect="http://www.onvif.org/ver10/tev/messageContentFilter/ItemFilter">boolean(//SimpleItem[@Name="active" and @Value="1"])</wsnt:MessageContent>
+          </act:Condition>
+        </act:Conditions>
+
+        <act:PrimaryAction>32</act:PrimaryAction>
+      </act:NewActionRule>
+    </act:AddActionRule>
+
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+<Parameters>
+  <Parameter Name="post_duration" Value="1000"></Parameter>
+  <Parameter Name="create_folder" Value="hubba"></Parameter>
+  <Parameter Name="qos" Value=""></Parameter>
+  <Parameter Name="custom_params" Value=""></Parameter>
+  <Parameter Name="upload_url" Value="https://172.25.125.218:58674/"></Parameter>
+  <Parameter Name="max_file_size" Value="0"></Parameter>
+  <Parameter Name="stream_options" Value="streamprofile=Quality"></Parameter>
+  <Parameter Name="proxy_login" Value=""></Parameter>
+  <Parameter Name="validate_server_cert" Value="0"></Parameter>
+  <Parameter Name="login" Value=""></Parameter>
+  <Parameter Name="password" Value=""></Parameter>
+  <Parameter Name="proxy_host" Value=""></Parameter>
+  <Parameter Name="proxy_port" Value=""></Parameter>
+  <Parameter Name="pre_duration" Value="1000"></Parameter>
+  <Parameter Name="filename" Value="hubba.mkv"></Parameter>
+  <Parameter Name="max_duration" Value="0"></Parameter>
+  <Parameter Name="proxy_password" Value=""></Parameter>
+</Parameters>

@@ -23,6 +23,7 @@ type ActionHandler interface {
 	GetActionRule(name string) (ActionRuleResponse, bool, error)
 	GetActionRules() ([]ActionRuleResponse, error)
 	AddActionRule(name string, enabled bool, startEvent StartEvent, primaryActionID int) (int, error)
+	AddActionConditionRule(name string, enabled bool, conditions []ConditionRequest, primaryActionID int) (int, error)
 	RemoveActionRule(ruleID int) error
 }
 
@@ -136,6 +137,25 @@ func (ah *actionHandler) GetActionRules() ([]ActionRuleResponse, error) {
 
 func (ah *actionHandler) AddActionRule(name string, enabled bool, startEvent StartEvent, primaryActionID int) (int, error) {
 	request := NewAddActionRule(NewActionRule(name, enabled, startEvent.TopicExpression, startEvent.MessageContent, primaryActionID))
+	body := NewSoapBody(request)
+	envelope := NewSoapEnvelope(body)
+
+	response := &AddActionRuleSoapEnvelope{}
+	err := SoapDo(ah.ctx, ah.username, ah.password, ah.address, "http://www.axis.com/vapix/ws/action1/AddActionRule", envelope, response)
+	if err != nil {
+		return 0, err
+	}
+	return response.AddActionRulenSoapBody.AddActionRuleResponse.RuleID, nil
+}
+
+func (ah *actionHandler) AddActionConditionRule(
+	name string,
+	enabled bool,
+	conditions []ConditionRequest,
+	primaryActionID int,
+) (int, error) {
+
+	request := NewAddActionConditionRule(NewActionConditionRule(name, enabled, conditions, primaryActionID))
 	body := NewSoapBody(request)
 	envelope := NewSoapEnvelope(body)
 
