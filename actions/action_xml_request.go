@@ -16,7 +16,7 @@ func NewAddActionConfigurationsRequest(name string, templateToken string, parame
 	}
 
 	config := AddActionConfiguration{
-		XMLNS: "http://www.axis.com/vapix/ws/action1",
+		XMLNS:                  "http://www.axis.com/vapix/ws/action1",
 		NewActionConfiguration: newcConfig,
 	}
 
@@ -100,10 +100,23 @@ func NewAddActionRule(actionRule ActionRule) AddActionRule {
 	}
 }
 
+func NewAddActionConditionRule(actionRule ActionConditionRule) AddActionConditionRule {
+	return AddActionConditionRule{
+		ActionRule: actionRule,
+		XmlNS:      "http://www.axis.com/vapix/ws/action1",
+	}
+}
+
 type AddActionRule struct {
 	XmlNS      string     `xml:"xmlns,attr"`
 	ActionRule ActionRule `xml:"NewActionRule"`
 	XMLName    xml.Name   `xml:"aa:AddActionRule"`
+}
+
+type AddActionConditionRule struct {
+	XmlNS      string              `xml:"xmlns,attr"`
+	ActionRule ActionConditionRule `xml:"NewActionRule"`
+	XMLName    xml.Name            `xml:"aa:AddActionRule"`
 }
 
 func NewStartEvent(topicExpression TopicExpression, messageContent MessageContent) StartEvent {
@@ -123,6 +136,18 @@ func NewTopicExpression(value string) TopicExpression {
 		Expression: value,
 		Dialect:    "http://www.onvif.org/ver10/tev/topicExpression/ConcreteSet",
 	}
+}
+
+func NewTopicOasisTopicExpression(value string) TopicExpression {
+	return TopicExpression{
+		Expression: value,
+		Dialect:    "http://docs.oasis-open.org/wsn/t-1/TopicExpression/Concrete",
+	}
+}
+
+type ConditionRequest struct {
+	TopicExpression TopicExpression `xml:"wsnt:TopicExpression"`
+	MessageContent  MessageContent  `xml:"wsnt:MessageContent"`
 }
 
 type TopicExpression struct {
@@ -159,6 +184,23 @@ type ActionRule struct {
 	TopicExpression TopicExpression `xml:"StartEvent>wsnt:TopicExpression"`
 	MessageContent  MessageContent  `xml:"StartEvent>wsnt:MessageContent"`
 	PrimaryAction   int             `xml:"PrimaryAction`
+}
+
+func NewActionConditionRule(
+	name string, enabled bool, conditions []ConditionRequest, primaryActionID int) ActionConditionRule {
+	return ActionConditionRule{
+		Name:          name,
+		Enabled:       enabled,
+		Conditions:    conditions,
+		PrimaryAction: primaryActionID,
+	}
+}
+
+type ActionConditionRule struct {
+	Name          string             `xml:"Name`
+	Enabled       bool               `xml:"Enabled`
+	Conditions    []ConditionRequest `xml:"Conditions>Condition"`
+	PrimaryAction int                `xml:"PrimaryAction`
 }
 
 type RemoveActionRule struct {

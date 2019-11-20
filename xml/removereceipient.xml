@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1">
+
+    <act:RemoveRecipientConfiguration>
+      <act:ConfigurationID>2</act:ConfigurationID>
+    </act:RemoveRecipientConfiguration>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

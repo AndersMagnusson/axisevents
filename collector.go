@@ -4,6 +4,7 @@ package axisevents
 type collector struct {
 	name            string
 	enabled         bool
+	version         int
 	templateToken   string
 	topicExpression string
 	messageContent  string

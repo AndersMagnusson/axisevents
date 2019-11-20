@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body xmlns:act="http://www.axis.com/vapix/ws/action1">
+    <act:AddRecipientConfiguration>
+      <act:NewRecipientConfiguration>
+        <act:Name>andersmn</act:Name>
+        <act:TemplateToken>com.axis.recipient.https</act:TemplateToken>
+        <act:Parameters>
+          <act:Parameter Name="upload_url" Value="https://testtttttttt.se"/>
+          <act:Parameter Name="login" Value=""/>
+          <act:Parameter Name="password" Value=""/>
+          <act:Parameter Name="validate_server_cert" Value="1"/>
+          <act:Parameter Name="qos" Value="0"/>
+          <act:Parameter Name="proxy_host" Value=""/>
+          <act:Parameter Name="proxy_port" Value=""/>
+          <act:Parameter Name="proxy_login" Value=""/>
+          <act:Parameter Name="proxy_password" Value=""/>
+        </act:Parameters>
+      </act:NewRecipientConfiguration>
+    </act:AddRecipientConfiguration>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

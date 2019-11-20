@@ -52,14 +52,32 @@ func (h *command) ExecuteOn(ctx context.Context, device Device) error {
 		return fmt.Errorf("Failed to add ActionConfiguration, %s", err.Error())
 	}
 
-	topixExpression := actions.NewTopicExpression(h.collector.topicExpression)
 	messageContent := actions.NewMessageContent(h.collector.messageContent)
-	startEvent := actions.NewStartEvent(topixExpression, messageContent)
 
-	_, err = handler.AddActionRule(h.collector.name, h.collector.enabled, startEvent, configID)
-	if err != nil {
-		return fmt.Errorf("Failed to add ActionRule, %s", err.Error())
+	if h.collector.version < 4 {
+		topixExpression := actions.NewTopicExpression(h.collector.topicExpression)
+		startEvent := actions.NewStartEvent(topixExpression, messageContent)
+
+		_, err = handler.AddActionRule(h.collector.name, h.collector.enabled, startEvent, configID)
+		if err != nil {
+			return fmt.Errorf("Failed to add ActionRule, %s", err.Error())
+		}
+	} else {
+		topixExpression := actions.NewTopicOasisTopicExpression(h.collector.topicExpression)
+		c1 := actions.ConditionRequest{
+			TopicExpression: topixExpression,
+			MessageContent:  messageContent,
+		}
+
+		_, err = handler.AddActionConditionRule(
+			h.collector.name, h.collector.enabled, []actions.ConditionRequest{c1}, configID)
+		if err != nil {
+			return fmt.Errorf("Failed to add ActionRule, %s", err.Error())
+		}
+
+		// c1 := actions.NewActionConditionRule(name string, enabled bool, conditions []actions.ConditionRequest, primaryActionID int)
 	}
+
 	return nil
 }
 

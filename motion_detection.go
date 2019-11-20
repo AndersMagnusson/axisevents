@@ -15,7 +15,11 @@ type Device struct {
 // 2,3,4 defaults to version 2
 // Supported actions:
 // Record video to the device SD-card.
-func NewMotionDetectionHandler(name string, enabled bool, version int) MotionDetectionHandler {
+func NewMotionDetectionHandler(
+	name string,
+	enabled bool,
+	version int,
+) *MotionDetectionHandler {
 	var topicExpression string
 	switch version {
 	case 2:
@@ -31,37 +35,37 @@ func NewMotionDetectionHandler(name string, enabled bool, version int) MotionDet
 	collector := collector{
 		name:            name,
 		enabled:         enabled,
+		version:         version,
 		topicExpression: topicExpression,
 		messageContent:  `boolean(//SimpleItem[@Name="active" and @Value="1"])`,
 		properties:      make(map[string]interface{}),
 	}
-	return &motionDetectionHandler{
+	return &MotionDetectionHandler{
 		collector: collector,
 	}
 }
 
-// MotionDetectionHandler defines operations to use when a device detects motion.
-type MotionDetectionHandler interface {
-	// Send http notifications when motion is detected.
-	HttpNotification() HTTPNotificationHandler
-	// Record motion.
-	Record() RecordVideoHandler
-}
-
-type motionDetectionHandler struct {
+type MotionDetectionHandler struct {
 	collector collector
 }
 
 // HttpNotification sends http notifications when motion is detected.
-func (h *motionDetectionHandler) HttpNotification() HTTPNotificationHandler {
-	return &httpNotificationHandler{
+func (h *MotionDetectionHandler) HttpNotification() *HttpNotificationHandler {
+	return &HttpNotificationHandler{
 		collector: h.collector,
 	}
 }
 
 // Record motion.
-func (h *motionDetectionHandler) Record() RecordVideoHandler {
+func (h *MotionDetectionHandler) Record() RecordVideoHandler {
 	return &recordVideoHandler{
+		collector: h.collector,
+	}
+}
+
+// Send video clip.
+func (h *MotionDetectionHandler) VideoClip() *SendVideoClipper {
+	return &SendVideoClipper{
 		collector: h.collector,
 	}
 }
